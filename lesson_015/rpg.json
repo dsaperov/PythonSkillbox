@@ -1,0 +1,91 @@
+{
+  "Location_0_tm0": [
+    "Mob_exp10_tm0",
+    {
+      "Location_1_tm10400000": [
+        "Mob_exp20_tm200",
+        "Mob_exp20_tm200",
+        {
+          "Location_3_tm330000000": [
+            {
+              "Location_7_tm333000000": [
+                {
+                  "Location_10_tm551000000": [
+                    [
+                      "Mob_exp25_tm1",
+                      "Mob_exp30_tm1",
+                      "Mob_exp20_tm1",
+                      "Mob_exp24_tm1"
+                    ],
+                    {
+                      "Location_12_tm0.0987654320": [
+                        "Boss100_exp100_tm10",
+                        "Boss200_exp30_tm10"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Location_2_tm333000000": [
+        "Mob_exp20_tm167710",
+        {
+          "Location_4_tm440000000": [
+            "Mob_exp10_tm400",
+            "Mob_exp15_tm400",
+            "Mob_exp20_tm400"
+          ]
+        },
+        {
+          "Location_5_tm551000000": [
+            {
+              "Location_8_tm300000000": [
+                "Mob_exp20_tm80020",
+                "Mob_exp25_tm80025",
+                "Mob_exp30_tm80030",
+                "Mob_exp35_tm80035",
+                "Mob_exp40_tm80040"
+              ]
+            },
+            {
+              "Location_9_tm300000000": [
+                "Mob_exp30_tm30",
+                {
+                  "Location_11_tm40000000": [
+                    "Boss_exp100_tm10400000",
+                    {
+                      "Location_B2_tm0.098765432": [
+                        "Mob_exp40_tm50",
+                        "Mob_exp40_tm50",
+                        "Mob_exp40_tm50"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Location_6_tm300000000": [
+            "Boss_exp280_tm10400000",
+            {
+              "Location_B1_tm0.098765432": [
+                "Mob_exp10_tm0",
+                "Mob_exp10_tm0",
+                "Mob_exp10_tm0",
+                "Mob_exp10_tm0",
+                "Mob_exp10_tm0"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
