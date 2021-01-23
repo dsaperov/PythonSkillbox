@@ -43,4 +43,35 @@
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
 
-# TODO здесь ваш код...
+from mastermind_engine import guess_the_number, check_the_number
+from termcolor import cprint, colored
+
+
+bulls = None
+cows = None
+counter = 0
+guess_the_number()
+
+while bulls != 4:
+    unique_digits = False
+    while not unique_digits:
+        number = input(colored('Введите число ', color='yellow'))
+        if not number.isdigit():
+            cprint('Буквы вводить нельзя!', color='red')
+            continue
+        if len(number) > 4:
+            cprint('Не более 4-ех цифр!', color='red')
+            continue
+        for digit in number[:-1]:
+            if number.count(digit) > 1:
+                cprint('Все цифры должны быть разными!', color='red')
+                break
+        else:
+            unique_digits = True
+    check_res = check_the_number(number)
+    bulls = check_res['bulls']
+    cows = check_res['cows']
+    cprint('быков - {}, коров - {}'.format(bulls, cows), color='green')
+    counter += 1
+
+cprint('Сделано ходов - {}. Хотите еще партию?'.format(counter), color='blue')
