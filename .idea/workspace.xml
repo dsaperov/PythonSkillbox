@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 1 edited">
+    <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 7 done">
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_007/02_alchemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_007/02_alchemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_007/03_man_ans_cat.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_007/03_man_ans_cat.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,7 +41,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.03_man_ans_cat">
+  <component name="RunManager" selected="Python.test">
     <configuration name="03_man_ans_cat" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonSkillbox" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -78,8 +84,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonSkillbox" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.03_man_ans_cat" />
       </list>
     </recent_temporary>
@@ -128,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611424869915</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="h/w for lesson 7 done">
+      <created>1611432931839</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611432931839</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,7 +184,8 @@
     <MESSAGE value="h/w for lesson 5 done" />
     <MESSAGE value="h/w for lesson 6 done" />
     <MESSAGE value="h/w for lesson 1 edited" />
-    <option name="LAST_COMMIT_MESSAGE" value="h/w for lesson 1 edited" />
+    <MESSAGE value="h/w for lesson 7 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="h/w for lesson 7 done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
