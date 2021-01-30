@@ -50,23 +50,57 @@ class House:
         self.money = 100
         self.food = 50
         self.mud = 0
+        self.citizens = {'humans': []}
 
     def __str__(self):
         res = 'Деньги  - {}, еда - {}, загрязненность - {}'.format(self.money, self.food, self.mud)
         return res
 
+class LivingThing:
 
-class Human:
-    def __init__(self, name, house):
-        self.name = name
+    def __init__(self):
         self.fullness = 30
+
+    def _cut_bias_par_values(self):
+        if self.fullness > 100:
+            self.fullness = 100
+        if self.fullness < 0:
+            self.fullness = -1
+
+    def _update_life_parameters(self, name, house):
+        if self.fullness < 0:
+            house.citizens['humans'].remove(self)
+            cprint('{} умер(ла) голодной смертью'.format(name), color='red')
+
+
+
+class Human(LivingThing):
+    def __init__(self, name, house):
+        super().__init__()
+        self.name = name
         self.happiness = 100
         self.house = house
+        self.house.citizens['humans'].append(self)
         self.food_consumed = 0
 
     def __str__(self):
         res = '{}: сытость - {}, счастье - {}'.format(self.name, self.fullness, self.happiness)
         return res
+
+    def _cut_bias_par_values(self):
+        super()._cut_bias_par_values()
+        if self.happiness > 100:
+            self.happiness = 100
+
+    def _update_life_parameters(self):
+        super()._update_life_parameters(self.name, self.house)
+
+        if self.house.mud > 90:
+            self.happiness -= 10
+        if self.happiness < 10:
+            self.house.citizens.remove(self)
+            cprint('{} умер(ла) от депрессии'.format(self.name), color='red')
+
 
     def eat(self):
         if self.house.food < 30:
@@ -79,13 +113,6 @@ class Human:
             self.house.food -= 30
         print('{} поел(а)'.format(self.name))
 
-    def cut_max_levels(self):
-        if self.fullness > 100:
-            self.fullness = 100
-        if self.happiness > 100:
-            self.happiness = 100
-        if self.fullness > 100:
-            self.fullness = 100
 
     def act(self):
         action_done = False
@@ -94,12 +121,6 @@ class Human:
             action_done = True
 
         self.house.mud += 2.5
-        if self.house.mud > 90:
-            self.happiness -= 10
-        if self.fullness < 0:
-            cprint('{} умер(ла) от голода'.format(self.name), color='red')
-        if self.happiness < 10:
-            cprint('{} умер(ла) от депрессии'.format(self.name), color='red')
         return action_done
 
 
@@ -134,7 +155,8 @@ class Husband(Human):
                     self.work()
                 else:
                     self.gaming()
-        self.cut_max_levels()
+        self._cut_bias_par_values()
+        self._update_life_parameters()
 
 
 class Wife(Human):
@@ -191,20 +213,22 @@ class Wife(Human):
                             dice = randint(1, 4)
                             if dice not in dices:
                                 new_number = True
-        self.cut_max_levels()
+        self._cut_bias_par_values()
+        self._update_life_parameters()
 
 
 home = House()
 sergey = Husband(name='Сережа', house=home)
 masha = Wife(name='Маша', house=home)
 
-for day in range(365):
+for day in range(1, 366):
     cprint('================== День {} =================='.format(day), color='green')
-    sergey.act()
-    masha.act()
-    cprint(sergey, color='cyan')
-    cprint(masha, color='cyan')
-    cprint(home, color='cyan')
+    for citizen in [citizen for citizens in home.citizens.values() for citizen in citizens]:
+        citizen.act()
+        cprint(citizen, color='cyan')
+    cprint(home, color='magenta')
+    if not home.citizens:
+        break
 
 print('Денег заработано - {}'.format(sergey.money_earned), 'Съедено еды - {}'.format(sergey.food_consumed +
                                                                                      masha.food_consumed),
@@ -295,22 +319,22 @@ class Child:
 # отправить на проверку учителем.
 
 
-home = House()
-serge = Husband(name='Сережа')
-masha = Wife(name='Маша')
-kolya = Child(name='Коля')
-murzik = Cat(name='Мурзик')
-
-for day in range(365):
-    cprint('================== День {} =================='.format(day), color='red')
-    serge.act()
-    masha.act()
-    kolya.act()
-    murzik.act()
-    cprint(serge, color='cyan')
-    cprint(masha, color='cyan')
-    cprint(kolya, color='cyan')
-    cprint(murzik, color='cyan')
+# home = House()
+# serge = Husband(name='Сережа')
+# masha = Wife(name='Маша')
+# kolya = Child(name='Коля')
+# murzik = Cat(name='Мурзик')
+#
+# for day in range(365):
+#     cprint('================== День {} =================='.format(day), color='red')
+#     serge.act()
+#     masha.act()
+#     kolya.act()
+#     murzik.act()
+#     cprint(serge, color='cyan')
+#     cprint(masha, color='cyan')
+#     cprint(kolya, color='cyan')
+#     cprint(murzik, color='cyan')
 
 # Усложненное задание (делать по желанию)
 #
