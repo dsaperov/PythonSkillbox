@@ -46,7 +46,11 @@ from random import randint
 class House:
 
     def __init__(self):
-        pass
+        self.money = 100
+        self.food = 50
+        self.mud = 0
+        self.cat_food = 30
+        self.citizens = {'humans': [], 'cats': []}
 
     def __str__(self):
         res = 'Деньги  - {}, еда - {}, загрязненность - {}, кошачья еда - {}'.format(self.money, self.food, self.mud,
@@ -59,14 +63,19 @@ class LivingThing:
     def __init__(self):
         self.fullness = 30
 
-    def cut_max_levels(self):
+    def _cut_bias_par_values(self):
         if self.fullness > 100:
             self.fullness = 100
-
-
-    def act(self):
         if self.fullness < 0:
-            self.house.citizens.remove(self)
+            self.fullness = -1
+
+    def _update_life_parameters(self, name, house):
+        if self.fullness < 0:
+            if isinstance(self, Human):
+                house.citizens['humans'].remove(self)
+            else:
+                house.citizens['cats'].remove(self)
+            cprint('{} умер(ла) голодной смертью'.format(name), color='red')
 
 
 
@@ -76,12 +85,26 @@ class Human(LivingThing):
         self.name = name
         self.happiness = 100
         self.house = house
-        self.house.citizens.append(self)
+        self.house.citizens['humans'].append(self)
         self.food_consumed = 0
 
     def __str__(self):
         res = '{}: сытость - {}, счастье - {}'.format(self.name, self.fullness, self.happiness)
         return res
+
+    def _cut_bias_par_values(self):
+        super()._cut_bias_par_values()
+        if self.happiness > 100:
+            self.happiness = 100
+
+    def _update_life_parameters(self):
+        super()._update_life_parameters(self.name, self.house)
+
+        if self.house.mud > 90:
+            self.happiness -= 10
+        if self.happiness < 10:
+            self.house.citizens.remove(self)
+            cprint('{} умер(ла) от депрессии'.format(self.name), color='red')
 
     def eat(self):
         if self.house.food < 30:
@@ -93,11 +116,6 @@ class Human(LivingThing):
             self.food_consumed += 30
             self.house.food -= 30
         print('{} поел(а)'.format(self.name))
-
-    def cut_max_levels(self):
-        super().cut_max_levels()
-        if self.happiness > 100:
-            self.happiness = 100
 
     def pet_a_cat(self):
         self.happiness += 5
@@ -117,16 +135,6 @@ class Human(LivingThing):
             action_done = True
 
         self.house.mud += 2.5
-        if self.house.mud > 90:
-            self.happiness -= 10
-        super().act()
-        if self.fullness < 0:
-            cprint('{} умер(ла) голодной смертью'.format(self.name), color='red')
-            action_done = True
-        if self.happiness < 10:
-            self.house.citizens.remove(self)
-            cprint('{} умер(ла) от депрессии'.format(self.name), color='red')
-            action_done = True
         return action_done
 
 
@@ -159,11 +167,12 @@ class Husband(Human):
                     self.eat()
                 elif dice == 2:
                     self.work()
-                elif dice == 3:
+                elif dice == 3 and self.house.citizens['cats']:
                     self.pet_a_cat()
                 else:
                     self.gaming()
-        self.cut_max_levels()
+        self._cut_bias_par_values()
+        self._update_life_parameters()
 
 
 class Wife(Human):
@@ -196,8 +205,7 @@ class Wife(Human):
         if not super().act():
             if self.house.food < 70 and self.house.money >= 100:
                 self.shopping()
-            elif self.happiness < 30 and self.house.money >= 350 and \
-                    self.fur_coats_counter < 4:
+            elif self.happiness < 30 and self.house.money >= 350 and self.fur_coats_counter < 4:
                 self.buy_fur_coat()
             elif self.house.mud > 80:
                 self.clean_house()
@@ -214,7 +222,7 @@ class Wife(Human):
                         self.eat()
                     elif dice == 4:
                         self.clean_house()
-                    elif dice == 5:
+                    elif dice == 5 and self.house.citizens['cats']:
                         self.pet_a_cat()
                     else:
                         new_number = False
@@ -222,7 +230,8 @@ class Wife(Human):
                             dice = randint(1, 5)
                             if dice not in dices:
                                 new_number = True
-        self.cut_max_levels()
+        self._cut_bias_par_values()
+        self._update_life_parameters()
 
 
 home = House()
@@ -272,20 +281,53 @@ masha = Wife(name='Маша', house=home)
 
 class Cat(LivingThing):
 
-    def __init__(self):
-        pass
+    def __init__(self, name, house):
+        super().__init__()
+        self.name = name
+        self.house = house
+        self.house.citizens['cats'].append(self)
 
-    def act(self):
-        pass
+    def __str__(self):
+        res = 'Кот {}: сытость - {}'.format(self.name, self.fullness)
+        return res
 
     def eat(self):
-        pass
+        if self.house.cat_food >= 10:
+            self.house.cat_food -= 10
+            self.fullness += self.house.cat_food * 2
+        else:
+            self.fullness += self.house.cat_food * 2
+            self.house.cat_food = 0
+        print('Кот {} обожрался'.format(self.name))
 
     def sleep(self):
-        pass
+        self.fullness -= 50
+        print('Кот {} спал весь день'.format(self.name))
 
     def soil(self):
-        pass
+        self.fullness -= 10
+        self.house.mud += 5
+        print('Кот {} от скуки сгрыз обои'.format(self.name))
+
+    def act(self):
+        if self.fullness < 30 and self.house.cat_food > 0:
+            self.eat()
+        else:
+            dices = []
+            dice = randint(1, 3)
+            while dice not in dices:
+                dices.append(dice)
+                if dice == 1 and self.house.food > 0:
+                    self.eat()
+                elif dice == 2:
+                    self.sleep()
+                elif dice == 3:
+                    self.soil()
+                else:
+                    dice = randint(2, 3)
+
+        self._cut_bias_par_values()
+        self._update_life_parameters(self.name, self.house)
 
 
 ######################################################## Часть вторая бис
@@ -307,7 +349,6 @@ class Child:
     def __str__(self):
         res = '{}: сытость - {}, счастье - {}'.format(self.name, self.fullness, self.happiness)
         return res
-
 
     def act(self):
         pass
@@ -337,10 +378,10 @@ murzik = Cat(name='Мурзик', house=home)
 
 for day in range(1, 366):
     cprint('================== День {} =================='.format(day), color='green')
-    for citizen in home.citizens:
+    for citizen in [citizen for citizens in home.citizens.values() for citizen in citizens]:
         citizen.act()
         cprint(citizen, color='cyan')
-    cprint(home, color='cyan')
+    cprint(home, color='magenta')
     if not home.citizens:
         break
 
