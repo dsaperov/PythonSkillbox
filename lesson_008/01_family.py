@@ -2,7 +2,6 @@
 
 from termcolor import cprint
 from random import randint
-from pprint import pprint
 
 
 ######################################################## Часть первая
@@ -50,10 +49,12 @@ class House:
         self.money = 100
         self.food = 50
         self.mud = 0
-        self.citizens = {'humans': []}
+        self.cat_food = 30
+        self.citizens = {'humans': [], 'cats': []}
 
     def __str__(self):
-        res = 'Деньги  - {}, еда - {}, загрязненность - {}'.format(self.money, self.food, self.mud)
+        res = 'Деньги  - {}, еда - {}, загрязненность - {}, кошачья еда - {}'.format(self.money, self.food, self.mud,
+                                                                                     self.cat_food)
         return res
 
 
@@ -70,8 +71,12 @@ class LivingThing:
 
     def _update_life_parameters(self, name, house):
         if self.fullness < 0:
-            house.citizens['humans'].remove(self)
+            if isinstance(self, Human):
+                house.citizens['humans'].remove(self)
+            else:
+                house.citizens['cats'].remove(self)
             cprint('{} умер(ла) голодной смертью'.format(name), color='red')
+
 
 
 class Human(LivingThing):
@@ -112,10 +117,21 @@ class Human(LivingThing):
             self.house.food -= 30
         print('{} поел(а)'.format(self.name))
 
-    def act(self):
-        action_done = False
+    def pet_a_cat(self):
+        self.happiness += 5
+        print('{} погладил(а) кота'.format(self.name))
+
+    def buy_cat_food(self):
+        self.house.cat_food += 50
+        self.house.money -= 50
+        print('{} купил(а) еду для кота'.format(self.name))
+
+    def act(self, action_done=False):
         if self.fullness < 50 and self.house.food > 0:
             self.eat()
+            action_done = True
+        elif self.house.cat_food < 40 <= self.house.money:
+            self.buy_cat_food()
             action_done = True
 
         self.house.mud += 2.5
@@ -146,11 +162,13 @@ class Husband(Human):
             elif self.happiness < 70:
                 self.gaming()
             else:
-                dice = randint(1, 3)
+                dice = randint(1, 4)
                 if dice == 1 and self.house.food > 0:
                     self.eat()
                 elif dice == 2:
                     self.work()
+                elif dice == 3 and self.house.citizens['cats']:
+                    self.pet_a_cat()
                 else:
                     self.gaming()
         self._cut_bias_par_values()
@@ -187,14 +205,13 @@ class Wife(Human):
         if not super().act():
             if self.house.food < 70 and self.house.money >= 100:
                 self.shopping()
-            elif self.happiness < 30 and self.house.money >= 350 and \
-                    self.fur_coats_counter < 4:
+            elif self.happiness < 30 and self.house.money >= 350 and self.fur_coats_counter < 4:
                 self.buy_fur_coat()
             elif self.house.mud > 80:
                 self.clean_house()
             else:
                 dices = []
-                dice = randint(1, 4)
+                dice = randint(1, 5)
                 while dice not in dices:
                     dices.append(dice)
                     if dice == 1 and self.house.money >= 100 and self.house.food <= 300:
@@ -205,15 +222,106 @@ class Wife(Human):
                         self.eat()
                     elif dice == 4:
                         self.clean_house()
+                    elif dice == 5 and self.house.citizens['cats']:
+                        self.pet_a_cat()
                     else:
                         new_number = False
                         while not new_number:
-                            dice = randint(1, 4)
+                            dice = randint(1, 5)
                             if dice not in dices:
                                 new_number = True
         self._cut_bias_par_values()
         self._update_life_parameters()
 
+
+# TODO после реализации первой части - отдать на проверку учителю
+
+######################################################## Часть вторая
+#
+# После подтверждения учителем первой части надо
+# отщепить ветку develop и в ней начать добавлять котов в модель семьи
+#
+# Кот может:
+#   есть,
+#   спать,
+#   драть обои
+#
+# Люди могут:
+#   гладить кота (растет степень счастья на 5 пунктов)
+#
+# В доме добавляется:
+#   еда для кота (в начале - 30)
+#
+# У кота есть имя и степень сытости (в начале - 30)
+# Любое действие кота, кроме "есть", приводит к уменьшению степени сытости на 10 пунктов
+# Еда для кота покупается за деньги: за 10 денег 10 еды.
+# Кушает кот максимум по 10 единиц еды, степень сытости растет на 2 пункта за 1 пункт еды.
+# Степень сытости не должна падать ниже 0, иначе кот умрет от голода.
+#
+# Если кот дерет обои, то грязи становится больше на 5 пунктов
+
+
+class Cat(LivingThing):
+
+    def __init__(self, name, house):
+        super().__init__()
+        self.name = name
+        self.house = house
+        self.house.citizens['cats'].append(self)
+
+    def __str__(self):
+        res = 'Кот {}: сытость - {}'.format(self.name, self.fullness)
+        return res
+
+    def eat(self):
+        if self.house.cat_food >= 10:
+            self.house.cat_food -= 10
+            self.fullness += self.house.cat_food * 2
+        else:
+            self.fullness += self.house.cat_food * 2
+            self.house.cat_food = 0
+        print('Кот {} обожрался'.format(self.name))
+
+    def sleep(self):
+        self.fullness -= 50
+        print('Кот {} спал весь день'.format(self.name))
+
+    def soil(self):
+        self.fullness -= 10
+        self.house.mud += 5
+        print('Кот {} от скуки сгрыз обои'.format(self.name))
+
+    def act(self):
+        if self.fullness < 30 and self.house.cat_food > 0:
+            self.eat()
+        else:
+            dices = []
+            dice = randint(1, 3)
+            while dice not in dices:
+                dices.append(dice)
+                if dice == 1 and self.house.food > 0:
+                    self.eat()
+                elif dice == 2:
+                    self.sleep()
+                elif dice == 3:
+                    self.soil()
+                else:
+                    dice = randint(2, 3)
+
+        self._cut_bias_par_values()
+        self._update_life_parameters(self.name, self.house)
+
+
+######################################################## Часть вторая бис
+#
+# После реализации первой части надо в ветке мастер продолжить работу над семьей - добавить ребенка
+#
+# Ребенок может:
+#   есть,
+#   спать,
+#
+# отличия от взрослых - кушает максимум 10 единиц еды,
+# степень счастья  - не меняется, всегда ==100 ;)
 
 class Child(Human):
 
@@ -248,11 +356,21 @@ class Child(Human):
         self._cut_bias_par_values()
         self._update_life_parameters()
 
+# TODO после реализации второй части - отдать на проверку учителем две ветки
+
+
+######################################################## Часть третья
+#
+# после подтверждения учителем второй части (обоих веток)
+# влить в мастер все коммиты из ветки develop и разрешить все конфликты
+# отправить на проверку учителем.
+
 
 home = House()
-sergey = Husband(name='Сережа', house=home)
-masha = Wife(name='Маша', house=home)
-kolya = Child(name='Коля', house=home)
+serge = Husband(name='Сережа')
+masha = Wife(name='Маша')
+kolya = Child(name='Коля')
+murzik = Cat(name='Мурзик')
 
 for day in range(1, 366):
     cprint('================== День {} =================='.format(day), color='green')
@@ -266,81 +384,6 @@ for day in range(1, 366):
 print('Денег заработано - {}'.format(sergey.money_earned), 'Съедено еды - {}'.format(sergey.food_consumed +
                                                                                      masha.food_consumed),
       'Купено шуб - {}'.format(masha.fur_coats_counter), sep='\n')
-
-
-# TODO после реализации первой части - отдать на проверку учителю
-
-######################################################## Часть вторая
-#
-# После подтверждения учителем первой части надо
-# отщепить ветку develop и в ней начать добавлять котов в модель семьи
-#
-# Кот может:
-#   есть,
-#   спать,
-#   драть обои
-#
-# Люди могут:
-#   гладить кота (растет степень счастья на 5 пунктов)
-#
-# В доме добавляется:
-#   еда для кота (в начале - 30)
-#
-# У кота есть имя и степень сытости (в начале - 30)
-# Любое действие кота, кроме "есть", приводит к уменьшению степени сытости на 10 пунктов
-# Еда для кота покупается за деньги: за 10 денег 10 еды.
-# Кушает кот максимум по 10 единиц еды, степень сытости растет на 2 пункта за 1 пункт еды.
-# Степень сытости не должна падать ниже 0, иначе кот умрет от голода.
-#
-# Если кот дерет обои, то грязи становится больше на 5 пунктов
-
-
-class Cat:
-
-    def __init__(self):
-        pass
-
-    def act(self):
-        pass
-
-    def eat(self):
-        pass
-
-    def sleep(self):
-        pass
-
-    def soil(self):
-        pass
-
-
-######################################################## Часть вторая бис
-#
-# После реализации первой части надо в ветке мастер продолжить работу над семьей - добавить ребенка
-#
-# Ребенок может:
-#   есть,
-#   спать,
-#
-# отличия от взрослых - кушает максимум 10 единиц еды,
-# степень счастья  - не меняется, всегда ==100 ;)
-
-
-# TODO после реализации второй части - отдать на проверку учителем две ветки
-
-
-######################################################## Часть третья
-#
-# после подтверждения учителем второй части (обоих веток)
-# влить в мастер все коммиты из ветки develop и разрешить все конфликты
-# отправить на проверку учителем.
-
-
-# home = House()
-# serge = Husband(name='Сережа')
-# masha = Wife(name='Маша')
-# kolya = Child(name='Коля')
-# murzik = Cat(name='Мурзик')
-
 
 # Усложненное задание (делать по желанию)
 #
@@ -363,3 +406,4 @@ class Cat:
 #       for salary in range(50, 401, 50):
 #           max_cats = life.experiment(salary)
 #           print(f'При зарплате {salary} максимально можно прокормить {max_cats} котов')
+
