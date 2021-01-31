@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 8 / cat part edited">
+    <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 8 / 2 members part edited">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson_008/01_family.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_008/01_family.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612035197210</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="h/w for lesson 8 / 2 members part edited">
+      <created>1612035684289</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612035684289</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,7 +244,8 @@
     <MESSAGE value="h/w for lesson 1 edited" />
     <MESSAGE value="h/w for lesson 7 done" />
     <MESSAGE value="h/w for lesson 8 / cat part edited" />
-    <option name="LAST_COMMIT_MESSAGE" value="h/w for lesson 8 / cat part edited" />
+    <MESSAGE value="h/w for lesson 8 / 2 members part edited" />
+    <option name="LAST_COMMIT_MESSAGE" value="h/w for lesson 8 / 2 members part edited" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
