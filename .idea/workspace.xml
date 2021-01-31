@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 7 done">
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_008/01_family.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_008/01_family.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +132,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.01_family" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.03_man_ans_cat" />
       </list>
