@@ -33,7 +33,7 @@ class LogParser(metaclass=ABCMeta):
     def parse_file(self, sort_slice):
         with open(self.file_to_parse, mode='r', encoding='cp1251') as p_file:
             for next_line in p_file:
-                if 'NOK' in next_line:
+                if ' OK' not in next_line:
                     next_line = next_line[:sort_slice] + ']'
                     print(next_line in self.line_count)
                     if next_line not in self.line_count:

@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 7 done">
+    <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 9 almost done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_009/01_char_stat.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_009/01_char_stat.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson_009/02_log_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_009/02_log_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_009/python_snippets/02_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_009/python_snippets/02_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_009/python_snippets/06_format.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_009/python_snippets/06_format.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_009/python_snippets/byron.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_009/python_snippets/byron.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_016/python_snippets/03_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_016/python_snippets/03_images.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_016/python_snippets/05_practice.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_016/python_snippets/05_practice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_009/events.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_009/events.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -244,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611432931839</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="h/w for lesson 9 almost done">
+      <created>1613237986437</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1613237986437</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,7 +268,8 @@
     <MESSAGE value="h/w for lesson 6 done" />
     <MESSAGE value="h/w for lesson 1 edited" />
     <MESSAGE value="h/w for lesson 7 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="h/w for lesson 7 done" />
+    <MESSAGE value="h/w for lesson 9 almost done" />
+    <option name="LAST_COMMIT_MESSAGE" value="h/w for lesson 9 almost done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -278,8 +281,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lesson_009/02_log_parser.py</url>
-          <line>70</line>
-          <option name="timeStamp" value="17" />
+          <line>68</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
