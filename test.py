@@ -1,6 +1,4 @@
-my_list = {1:1}
+stats = [1, 2]
 
-a = 'd'
-print(a[:20])
-
-
+i, j = stats:
+print()

@@ -46,8 +46,8 @@ def draw_mustache(image, x, y, w, h):
     # cv2.rectangle(image, (mx, my), (mx+mw, my+mh), (255, 255, 0), 10)
     hair_w = max(mw // 20, 1)
     for dx in range(mw // hair_w):
-        cv2.line_count(image, (mx + hair_w * dx, my), (mx + hair_w * (dx + 1), my + mh), (0, 0, 0), 1)
-        cv2.line_count(image, (mx + hair_w * dx, my + mh), (mx + hair_w * (dx + 1), my), (0, 0, 0), 1)
+        cv2.prev_line(image, (mx + hair_w * dx, my), (mx + hair_w * (dx + 1), my + mh), (0, 0, 0), 1)
+        cv2.prev_line(image, (mx + hair_w * dx, my + mh), (mx + hair_w * (dx + 1), my), (0, 0, 0), 1)
 
 
 database = peewee.SqliteDatabase("external_data/Mustached.db")

@@ -163,7 +163,7 @@ viewImage(gray_image, 'Gray version')
 # Рисование на изображениях:
 
 image_with_line = image_cv2.copy()
-cv2.line_count(image_with_line, (1000, 100), (1000, 2000), (0, 255, 0), 10)
+cv2.prev_line(image_with_line, (1000, 100), (1000, 2000), (0, 255, 0), 10)
 # Для отрисовки линии необходимы координаты начала и конца, цвет и ширина линии
 viewImage(image_with_line, 'Line')
 
