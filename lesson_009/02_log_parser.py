@@ -30,7 +30,6 @@ class LogParser(metaclass=ABCMeta):
         self.prev_line = []
         self.prev_line_count = []
 
-
     @abstractmethod
     def parse_file(self, sort_slice):
         with open(self.file_to_parse, mode='r', encoding='cp1251') as p_file:
@@ -44,7 +43,6 @@ class LogParser(metaclass=ABCMeta):
         next_line = next_line[:sort_slice]
         if next_line not in self.prev_line:
             self.write_result()
-            self.prev_line.clear()
             self.prev_line = [next_line]
             self.prev_line_count = [1]
         else:
@@ -52,7 +50,6 @@ class LogParser(metaclass=ABCMeta):
 
     def write_result(self):
         with open(result_file, mode='a', encoding='cp1251') as r_file:
-
             for date, count in zip(self.prev_line, self.prev_line_count):
                 file_content = f'{date}] {count}' + '\n'
                 r_file.write(file_content)

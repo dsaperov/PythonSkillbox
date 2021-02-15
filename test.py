@@ -1,4 +1,3 @@
-stats = [1, 2]
-
-i, j = stats:
-print()
+a = '[2018-05-14 19:37:47.873687] NOK\n'
+b = a[-2]
+print(b)
