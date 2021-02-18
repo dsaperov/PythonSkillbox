@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 9 almost done">
+    <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 9 all tasks fully done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_009/02_log_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_009/02_log_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_016/python_snippets/03_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_016/python_snippets/03_images.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_016/python_snippets/05_practice.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_016/python_snippets/05_practice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_010/01_fifth_element.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_010/01_fifth_element.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_010/02_groundhog_day.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_010/02_groundhog_day.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_010/03_registration_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_010/03_registration_log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_010/python_snippets/03_raise.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_010/python_snippets/03_raise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_010/python_snippets/06_practice.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_010/python_snippets/06_practice.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +59,8 @@
       <recent name="D:\PycharmProjects\PythonSkillbox\lesson_009" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.02_log_parser">
-    <configuration name="авы" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.03_registration_log">
+    <configuration name="01_fifth_element" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonSkillbox" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,11 +68,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson_009" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson_010" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lesson_009/авы.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lesson_010/01_fifth_element.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -79,7 +81,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="02_log_parser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="02_groundhog_day" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonSkillbox" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -87,11 +89,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson_009" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson_010" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lesson_009/02_log_parser.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lesson_010/02_groundhog_day.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,7 +102,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="02_log_parser(1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="03_registration_log" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonSkillbox" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -108,11 +110,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson_009" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson_010" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lesson_009/02_log_parser(1).py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lesson_010/03_registration_log.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="06_practice" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonSkillbox" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson_010/python_snippets" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lesson_010/python_snippets/06_practice.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -163,34 +186,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="PythonSkillbox" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson_009" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lesson_009/test3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.02_log_parser" />
-        <item itemvalue="Python.02_log_parser(1)" />
+        <item itemvalue="Python.03_registration_log" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.авы" />
-        <item itemvalue="Python.test3" />
+        <item itemvalue="Python.02_groundhog_day" />
+        <item itemvalue="Python.01_fifth_element" />
+        <item itemvalue="Python.06_practice" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +254,63 @@
       <option name="project" value="LOCAL" />
       <updated>1613237986437</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="h/w for lesson 9 task 2 fully done">
+      <created>1613368445442</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1613368445442</updated>
+    </task>
+    <task id="LOCAL-00009" summary="h/w for lesson 9 all tasks fully done">
+      <created>1613481911717</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1613481911717</updated>
+    </task>
+    <task id="LOCAL-00010" summary="h/w for lesson 9 all tasks fully done">
+      <created>1613484000763</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1613484000763</updated>
+    </task>
+    <task id="LOCAL-00011" summary="h/w for lesson 9 all tasks fully done">
+      <created>1613484088900</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1613484088900</updated>
+    </task>
+    <task id="LOCAL-00012" summary="h/w for lesson 9 all tasks fully done">
+      <created>1613484138776</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1613484138776</updated>
+    </task>
+    <task id="LOCAL-00013" summary="h/w for lesson 9 all tasks fully done">
+      <created>1613484319828</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1613484319828</updated>
+    </task>
+    <task id="LOCAL-00014" summary="h/w for lesson 9 all tasks fully done">
+      <created>1613484463291</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1613484463291</updated>
+    </task>
+    <task id="LOCAL-00015" summary="h/w for lesson 9 all tasks fully done">
+      <created>1613484559674</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1613484559674</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,7 +333,9 @@
     <MESSAGE value="h/w for lesson 1 edited" />
     <MESSAGE value="h/w for lesson 7 done" />
     <MESSAGE value="h/w for lesson 9 almost done" />
-    <option name="LAST_COMMIT_MESSAGE" value="h/w for lesson 9 almost done" />
+    <MESSAGE value="h/w for lesson 9 task 2 fully done" />
+    <MESSAGE value="h/w for lesson 9 all tasks fully done" />
+    <option name="LAST_COMMIT_MESSAGE" value="h/w for lesson 9 all tasks fully done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -291,6 +351,13 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>
