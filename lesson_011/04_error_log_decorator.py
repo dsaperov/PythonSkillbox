@@ -7,19 +7,28 @@
 # Формат лога: <имя функции> <параметры вызова> <тип ошибки> <текст ошибки>
 # Лог файл открывать каждый раз при ошибке в режиме 'a'
 
+def fill_log_errors(file_name):
+    def log_errors(func):
+        def wrapper(*args, **kwargs):
+            try:
+                func(*args, **kwargs)
+            except Exception as exc:
+                with open(file=file_name, mode='a', encoding='utf-8') as file:
+                    file_content = f'<{func.__name__}> <{args, kwargs}> <{exc.__class__}> <{exc}> \n'
+                    file.write(file_content)
+                raise
 
-def log_errors(func):
-    pass
-    # TODO здесь ваш код
+        return wrapper
+    return log_errors
 
 
 # Проверить работу на следующих функциях
-@log_errors
+@fill_log_errors('function_errors.log')
 def perky(param):
     return param / 0
 
 
-@log_errors
+@fill_log_errors('function_errors.log')
 def check_line(line):
     name, email, age = line.split(' ')
     if not name.isalpha():
@@ -45,11 +54,9 @@ for line in lines:
         print(f'Invalid format: {exc}')
 perky(param=42)
 
-
 # Усложненное задание (делать по желанию).
 # Написать декоратор с параметром - именем файла
 #
 # @log_errors('function_errors.log')
 # def func():
 #     pass
-

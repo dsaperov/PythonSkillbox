@@ -238,7 +238,7 @@ class Boat(Process):
             fisher = Fisher(name=name, worms=self.worms_per_fisher, fish_receiver=self.fish_receiver)
             self.fishers.append(fisher)
         for fisher in self.fishers:
-            fisher.start()
+            fisher.current()
         while True:
             try:
                 # Этот метод у очереди - атомарный и блокирующий,

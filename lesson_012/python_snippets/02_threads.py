@@ -298,7 +298,7 @@ def run_in_one_thread(fishers):
 @time_track
 def run_in_threads(fishers):
     for fisher in fishers:
-        fisher.start()
+        fisher.current()
     for fisher in fishers:
         fisher.join()
 
@@ -355,7 +355,7 @@ def run_in_one_thread(fishers):
 @time_track
 def run_in_threads(fishers):
     for fisher in fishers:
-        fisher.start()
+        fisher.current()
     for fisher in fishers:
         fisher.join()
 

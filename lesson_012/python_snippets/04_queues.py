@@ -57,7 +57,7 @@ class Boat(threading.Thread):
     def run(self):
         print('Лодка вышла в море...', flush=True)
         for fisher in self.fishers:
-            fisher.start()
+            fisher.current()
         while True:
             try:
                 # Этот метод у очереди - атомарный и блокирующий,
