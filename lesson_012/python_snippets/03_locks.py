@@ -91,8 +91,10 @@ class Fisher(threading.Thread):
         for worm in range(self.worms):
             fish = random.choice(FISH)
             if fish is not None:
+            try:
                 self.fish_tank_lock.acquire()
                 self.fish_tank[fish] += 1
+            finally:
                 self.fish_tank_lock.release()
                 # with self.fish_tank_lock:
                 #     self.fish_tank[fish] += 1
