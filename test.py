@@ -1,42 +1,30 @@
-import threading
+from threading import Thread
 
+a = []
 
-def func_1(n):
-    global a, b
+def incrementer(n):
     for i in range(n):
-        print(f'{i}: func_1 wait lock_A', flush=True)
-        with lock_A:
-            print(f'{i}: func_1 take lock_A', flush=True)
-            a += 1
-            print(f'{i}: func_1 wait lock_B', flush=True)
-            with lock_B:
-                print(f'{i}: func_1 take lock_B', flush=True)
-                b += 1
+        a.append('1')
 
-
-def func_2(n):
-    global a, b
+def deleter(n):
+    global a
     for i in range(n):
-        print(f'{i}: func_2 wait lock_B', flush=True)
-        with lock_B:
-            print(f'{i}: func_2 take lock_B', flush=True)
-            b += 1
-            print(f'{i}: func_2 wait lock_A', flush=True)
-            with lock_A:
-                print(f'{i}: func_2 take lock_A', flush=True)
-                a += 1
+        a = []
 
+def indexer(n):
+    for _ in range(n):
+        a[0]
 
-a = 0
-b = 0
-lock_A = threading.RLock()
-lock_B = threading.RLock()
-N = 10
+n = 1000000
 
-thread_1 = threading.Thread(target=func_1, args=(N,))
-thread_2 = threading.Thread(target=func_2, args=(N,))
+thread_1 = Thread(target=incrementer, args=(n, ))
 thread_1.start()
+thread_3 = Thread(target=deleter, args=(n, ))
+thread_3.start()
+thread_2 = Thread(target=indexer, args=(n, ))
 thread_2.start()
+
 thread_1.join()
 thread_2.join()
-print(a, b)
+thread_3.join()
+print(a)

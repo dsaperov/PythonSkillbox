@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aee175c1-bc1d-4fe7-bc99-2bee7d18dde1" name="Default Changelist" comment="h/w for lesson 11 done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_012/python_snippets/02_threads.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_012/python_snippets/02_threads.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_012/python_snippets/03_locks.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_012/python_snippets/03_locks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -362,11 +360,6 @@
           <url>file://$PROJECT_DIR$/lesson_009/02_log_parser.py</url>
           <line>75</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
