@@ -65,12 +65,94 @@
 #
 # Для плавного перехода к мультипоточности, код оформить в обьектном стиле, используя следующий каркас
 #
-# class <Название класса>:
-#
-#     def __init__(self, <параметры>):
-#         <сохранение параметров>
-#
-#     def run(self):
-#         <обработка данных>
+import os
+import time
 
-# TODO написать код в однопоточном/однопроцессорном стиле
+
+def time_track(func):
+    def surrogate(*args, **kwargs):
+        started_at = time.time()
+
+        result = func(*args, **kwargs)
+
+        ended_at = time.time()
+        elapsed = round(ended_at - started_at, 4)
+        print(f'------------------------Функция работала {elapsed} секунд(ы)------------------------')
+        return result
+
+    return surrogate
+
+
+class Ticker:
+
+    def __init__(self, log):
+        self.log = log
+        self.id = None
+        self.max_price = None
+        self.min_price = None
+        self.volatility = None
+
+    def calculate_volatility(self):
+        next(self.log)
+        first_data_line = self.log.readline()
+        self.id = self._get_column_data(first_data_line, column=0)
+        first_price = self._get_column_data(first_data_line, column=2)
+        self.max_price = self.min_price = first_price
+
+        for line in self.log:
+            price = self._get_column_data(line, column=2)
+            if price > self.max_price:
+                self.max_price = price
+            if price < self.min_price:
+                self.min_price = price
+
+        average_price = (self.max_price + self.min_price) / 2
+        volatility = (self.max_price - self.min_price) / average_price * 100
+        self.volatility = round(volatility, 2)
+
+    def _get_column_data(self, line, column):
+        data_list = line.split(',')
+        data = data_list[column]
+        if column == 2:
+            data = float(data)
+        return data
+
+
+@time_track
+def main():
+    zero_volatility_tickers = []
+    non_zero_volatility_tickers = []
+
+    trades_path = r'.\trades'
+    file_names = os.listdir(trades_path)
+
+    for file_name in file_names:
+        file_path = os.path.join(trades_path, file_name)
+        with open(file=file_path, mode='r') as file:
+            ticker = Ticker(file)
+            ticker.calculate_volatility()
+            if ticker.volatility == 0:
+                zero_volatility_tickers.append(ticker.id)
+            else:
+                non_zero_volatility_tickers.append((ticker.id, ticker.volatility))
+
+    non_zero_volatility_tickers.sort(key=lambda x: x[1])
+    min_volatility_tickers = non_zero_volatility_tickers[:3]
+    max_volatility_tickers = non_zero_volatility_tickers[-3:]
+
+    print('Максимальная волатильность:')
+    for ticker in max_volatility_tickers:
+        result = '\t' + f'{ticker[0]} - {ticker[1]}%'
+        print(result)
+
+    print('Минимальная волатильность:')
+    for ticker in min_volatility_tickers:
+        result = '\t' + f'{ticker[0]} - {ticker[1]}%'
+        print(result)
+
+    print('Нулевая волатильность:')
+    zero_volatility_tickers = ', '.join(zero_volatility_tickers)
+    print('\t' + zero_volatility_tickers)
+
+
+main()

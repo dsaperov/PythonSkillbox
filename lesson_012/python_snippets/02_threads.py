@@ -292,7 +292,7 @@ def time_track(func):
 @time_track
 def run_in_one_thread(fishers):
     for fisher in fishers:
-        fisher.run()
+        fisher.calculate_volatility()
 
 
 @time_track
@@ -349,7 +349,7 @@ def time_track(func):
 @time_track
 def run_in_one_thread(fishers):
     for fisher in fishers:
-        fisher.run()
+        fisher.calculate_volatility()
 
 
 @time_track
