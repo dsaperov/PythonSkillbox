@@ -8,9 +8,34 @@
 # Пример заполнения lesson_013/images/ticket_sample.png
 # Подходящий шрифт искать на сайте ofont.ru
 
-def make_ticket(fio, from_, to, date):
-    # TODO здесь ваш код
-    pass
+from PIL import Image, ImageFont, ImageDraw, ImageColor
+
+
+class TicketDraft:
+
+    def __init__(self, fio, from_, to, date, font_path):
+        self.fio = fio
+        self.from_ = from_
+        self.to = to
+        self.date = date
+        self.font = ImageFont.truetype(font_path, 15)
+        self.ticket_template = "images/ticket_template.png"
+
+    def make_ticket(self):
+        im = Image.open(self.ticket_template)
+
+        draw = ImageDraw.Draw(im)
+        draw.text((45, 125), text=self.fio, font=self.font, fill='black')
+        draw.text((45, 195), text=self.from_, font=self.font, fill='black')
+        draw.text((45, 260), text=self.to, font=self.font, fill='black')
+        draw.text((285, 260), text=self.date, font=self.font, fill='black')
+
+        im.save(self.fio + '_ticket.png')
+        print('Билет сохранен.')
+
+
+if __name__ == '__main__':
+    TicketDraft('ИВАНОВ И.И.', 'ЗЕМЛЯ', 'ЛУНА', '09.12', "fonts/ofont.ru_Plumb.ttf").make_ticket()
 
 # Усложненное задание (делать по желанию).
 # Написать консольный скрипт c помощью встроенного python-модуля agrparse.
