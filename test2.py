@@ -43,7 +43,7 @@ if __name__ == '__main__':
     args_help = ['ФИО пассажира', 'Место вылета', 'Место назначения', 'Дата вылета']
     for arg_name, args_help in zip(args_names[0:4], args_help):
         parser.add_argument(f'--{arg_name}', help=args_help)
-    parser.add_argument(f'--{args_names[4]}', required=False, help='Сохранить как')
+    parser.add_argument('--save_to', required=False, help='Сохранить как')
 
     args = parser.parse_args()
     fio, from_, to, date, save_to = [getattr(args, arg) for arg in args_names]
