@@ -2,11 +2,7 @@
 import logging
 
 log = logging.getLogger('primes')
-# log.setLevel(logging.DEBUG)
-# fh = logging.FileHandler("primes.log", 'w', 'utf-8')
-# formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-# fh.setFormatter(formatter)
-# log.addHandler(fh)
+print('создан объект логирования для primes')
 
 
 def prime_numbers_generator(n):

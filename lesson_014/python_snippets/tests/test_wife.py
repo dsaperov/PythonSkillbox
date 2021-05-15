@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-from family import House, Wife
+from ..family import House, Wife
 
 
 class WifeTest(unittest.TestCase):

@@ -5,7 +5,7 @@ import unittest
 from unittest.mock import Mock
 
 import handling_external_data
-from handling_external_data import ExternalResourceGetter
+from ..handling_external_data import ExternalResourceGetter
 
 _test_data = """
 1234567
