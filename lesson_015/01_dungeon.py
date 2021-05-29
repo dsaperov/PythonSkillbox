@@ -325,7 +325,6 @@ class CsvLog:
             return result
 
     def write_header(self, data_in_log, data=None):
-        print(data_in_log)
         with open(self.NAME, "w", newline='') as game_log:
             writer = csv.writer(game_log)
             writer.writerow(self.FIELDNAMES)
